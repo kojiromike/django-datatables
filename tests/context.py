@@ -6,7 +6,7 @@ sys.path.insert(0, os.path.abspath('./src/'))
 
 # Add capture context_manager to test sys.out
 try:
-    from StringIO import StringIO
+    from io import StringIO
 except ImportError:
     from io import StringIO
 from contextlib import contextmanager

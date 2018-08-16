@@ -1,4 +1,4 @@
-from __future__ import unicode_literals
+
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
@@ -23,15 +23,15 @@ class Sponsor(models.Model):
 
     def __unicode__(self):
         app_label = 'ecgps_core'
-        return unicode(self.sponsor_name)
+        return self.sponsor_name
 
 class Study(models.Model):
 
     STUDY_STATUS_CHOICES = (
-        ('active', _(u'Active')),
-        ('cancelled', _(u'Cancelled')),
-        ('closed_completed', _(u'Closed/Completed')),
-        ('implementing', _(u'Implementing')),
+        ('active', _('Active')),
+        ('cancelled', _('Cancelled')),
+        ('closed_completed', _('Closed/Completed')),
+        ('implementing', _('Implementing')),
     )
 
     BANK_FUNDED_CHOICES = (
@@ -94,7 +94,7 @@ class Study(models.Model):
         ("Vaccines", "Vaccines"),
     )
 
-    study_name = models.CharField(_(u'Study name'), max_length=250)
+    study_name = models.CharField(_('Study name'), max_length=250)
     slug = models.SlugField('Study slug', max_length=250)
     sponsor = models.ForeignKey(Sponsor)
     approval_levels = models.IntegerField(

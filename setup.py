@@ -39,7 +39,7 @@ setup(
     package_data={'': ['LICENSE']},
 
     install_requires=[
-        'django>=1.8',
+        'django>=2',
     ],
     include_package_data=True,
     zip_safe=False,                 # because we're including static files
@@ -50,8 +50,6 @@ setup(
         'Topic :: Internet :: WWW/HTTP',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',

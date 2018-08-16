@@ -3,7 +3,7 @@ from openpyxl.styles import Style, Font, Color
 from openpyxl.writer.dump_worksheet import ExcelDumpWriter
 
 from collections import defaultdict, OrderedDict
-from HTMLParser import HTMLParser
+from html.parser import HTMLParser
 from io import BytesIO
 from zipfile import ZipFile, ZIP_DEFLATED
 
@@ -105,8 +105,8 @@ class ExcelWriter(object):
                         value = '\r\n'.join(value)
                     if value is None:
                         value = ''
-                    if not isinstance(value, unicode):
-                        value = unicode(value).decode('utf-8')
+                    if isinstance(value, bytes):
+                        value = value.decode('utf-8')
 
                     value = strip_tags(value)
 

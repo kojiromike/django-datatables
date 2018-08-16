@@ -41,7 +41,7 @@ class Column(object):
                 if link_arg[0] not in (".", "#"):
                     values.append(link_arg)
 
-        if type(self) == CheckBoxColumn:  # CheckBoxColumn's "value" is a field
+        if isinstance(self, CheckBoxColumn):  # CheckBoxColumn's "value" is a field
             values.append(self.value)
         return values
 
@@ -123,7 +123,7 @@ class FontAwesome5Column(Column):
 class BulletedListColumn(Column):
 
     def render_column(self, value):
-        items = '\n'.join(map(lambda v: f'<li>{v}</li>', value))
+        items = '\n'.join(f'<li>{v}</li>' for v in value)
 
         return f"""
             <ul style="margin: 0; padding-left: 1.5em;">
